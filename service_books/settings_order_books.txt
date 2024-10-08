@@ -10,6 +10,8 @@ npm i -D @typescript-eslint/parser              // парсер кода для 
 npm i -D @typescript-eslint/eslint-plugin       // добавлять правила по проверке
 npx eslint --init
 
+npm i -S reflect-metadata inversify
+
 -----------------------
 package.json
     ...
