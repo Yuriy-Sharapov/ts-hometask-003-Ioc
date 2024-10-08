@@ -1,0 +1,28 @@
+npm init -y
+
+// Инициализация ts
+npm i -D typescript
+npx tsc --init
+
+// Инициализация ESLint
+npm i -D eslint
+npm i -D @typescript-eslint/parser              // парсер кода для проверки правил
+npm i -D @typescript-eslint/eslint-plugin       // добавлять правила по проверке
+npx eslint --init
+
+-----------------------
+package.json
+    ...
+  "scripts": {
+    "pbuild": "tsc --project ./tsconfig.prod.json --watch",
+    "dbuild": "tsc --project ./tsconfig.json --watch",
+    "eslint": "eslint --cache src/*{.js,.jsx,.ts,.tsx}",
+    "eslint:dump": "eslint --print-config ./.eslintrc.json"
+  },
+  
+------------- Разраобтка в контейнере -------------
+Нужно перейти в папку service_book
+
+docker run -it --rm --name dev_books -w /app -v "%cd%":/app -e PORT=3002 -p 80:3002 node:20.10 /bin/bash
+
+docker exec -it ts-hometask-003-ioc-books-1 /bin/bash
