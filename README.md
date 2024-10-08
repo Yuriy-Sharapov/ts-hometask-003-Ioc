@@ -1,11 +1,18 @@
-### Задание 1. Напишите интерфейс к сущности «книга» к разрабатываемому приложению «библиотека» из модуля NDSE «Настройка окружения и Express.js».
-### Задание 2. Включите строгий режим strict в опциях компилятора, а параметр strictNullChecks выключите.
-### Задание 3. Напишите астрактный class BooksRepository к разрабатываемому приложению «библиотека» первого модуля.
-Методы, которые должны быть в BooksRepository:
+1. Установите inversify к разрабатываемому приложению «библиотека» из модуля NDSE «Настройка окружения и Express.js» и создайте IoC-контейнер в файле container.js.
+Какую версию проекта использовать.
+
+2. Добавьте сервис BooksRepository из предыдущего задания в IoC-контейнер.
+Как должно выглядеть добавление:
 ```javascript
-createBook(book){} — создание книги.
-getBook(id){} — получение книги по id.
-getBooks(){} — получение всех книг.
-updateBook(id){} — обновление книги.
-deleteBook(id){} — удаление книги.
+container.bind(BooksRepository).toSelf()
+```
+Сервис должен подключиться .toSelf() без использования дополнительного контракта.
+
+3. Воспользуйтесь IoC-контейнером в обработчиках запросов express.js, чтобы получить BooksRepository.
+```javascript
+router.get(':id', async (req, res, next) => {
+  const repo = container.get(BooksRepository);
+  const book = await repo.getBook(req.params.id);
+  res.json(book);
+})
 ```
