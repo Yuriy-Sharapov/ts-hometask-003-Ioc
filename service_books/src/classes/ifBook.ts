@@ -1,4 +1,4 @@
-interface ifBook{
+export interface ifBook{
     title      : string;
     description: string;
     authors    : string;

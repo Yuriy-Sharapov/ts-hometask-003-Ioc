@@ -1,7 +1,8 @@
 // подключаем генератор гуидов UUID
-const { v4: uuid } = require('uuid')
+//const { v4: uuid } = require('uuid')
+import { v4 as uuid } from 'uuid'
 
-class cBook implements ifBook{
+export class cBook implements ifBook{
 
     title       : string;
     description : string; 
@@ -34,4 +35,4 @@ class cBook implements ifBook{
     }
 }
 
-module.exports = cBook
+//module.exports = cBook

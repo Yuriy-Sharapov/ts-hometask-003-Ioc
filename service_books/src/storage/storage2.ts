@@ -1,10 +1,12 @@
-const clBook = require('../classes/cBook2')
+//const cBook = require('../classes/cBook2')
+
+import {cBook} from '../classes/cBook2'
 
 // Инициализация базы книг
-const storage = {
+export const storage = {
 
     books: [
-        new clBook(
+        new cBook(
             "The Twelve-Factor App (Русский перевод)", 
             "Интересная книга",
             "",
@@ -12,7 +14,7 @@ const storage = {
             "public//books//TFA.html",
             "TFA.html",
             "public//books//TFA.html" ),
-        new clBook(
+        new cBook(
             "Совершенный код", 
             "Очень хорошая книга",
             "Макконнелл",
@@ -20,7 +22,7 @@ const storage = {
             "public//books//Макконнелл «Совершенный код».pdf",
             "Макконнелл «Совершенный код».pdf",
             "public//books//Макконнелл «Совершенный код».pdf" ),
-        new clBook(
+        new cBook(
             "Простоквашино", 
             "Отличная книга для детей",
             "Э. Успенский",
@@ -31,4 +33,4 @@ const storage = {
     ],
 }
 
-module.exports = storage
+//module.exports = storage
